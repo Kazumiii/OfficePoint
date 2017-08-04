@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://scheams.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-US" Name="OfficePointCommandSet_en-us">
+    <AppName>OfficePoint/</AppName>
+    <Example>Interact with OfficePoint for your organizational needs</Example>
+    
+      
+      
+      <Command Name="NavigateToSupportCommand">
+      <Example>Take me  to the OfficePoint support page</Example>
+      <ListenFor RequireAppName="ExplicitylSpecified" >Take me to the {builtin:AppName}supportPage</ListenFor>
+      <ListenFor RequireAppName="BeforePhrase">Take me to the support page</ListenFor>
+      <Feedback>Taking you to the support</Feedback>
+            <Navigate/>
+    </Command>
+  
+<Command Name="InterestingQueryFact">
+  <Example>Tell me a fact</Example>
+  <ListenFor> Tell me a fact</ListenFor>
+  <ListenFor>Tell me interesting fact</ListenFor>
+  <Feedback>Get ready</Feedback>
+<VoiceCommandService target="GeneralQueyVoiceCommand"/>
+    </Command>
+
+    
+  <Command Name="WeekOfYearQueryCommand">
+    <Example>What week of the year is it?</Example>
+    <ListenFor>What week of the year is it?</ListenFor>
+<Feedback>Calculating week</Feedback>
+  <VoiceCommandService target="GeneralQueyVoiceCommand"/>
+  </Command>
+
+<Command Name="FindBusinessQueryCommand">
+  <Exmaple>Find Coffe</Exmaple>
+  <ListenFor>Find {dictatedFindBusinessText}</ListenFor>
+  <Feedback>Locating {dictatedFindBusinessText}</Feedback>
+  <VoiceCommandService target="GenealQueyVoiceCommand"></VoiceCommandService>
+    </Command>  
+<PhraseTopic Label="dictatedFindBusinessText" Scenario="Dictation"></PhraseTopic>
+
+  </CommandSet>
+</VoiceCommands>
+
+  
